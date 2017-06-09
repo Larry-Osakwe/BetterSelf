@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context="com.larry.osakwe.betterself.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/sleep_image"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="60dp"
+        android:layout_weight="1"
+        android:background="#80000000"
+        android:padding="25dp"
+        android:src="@drawable/ic_airline_seat_individual_suite_white_48dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/eat_image"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="60dp"
+        android:layout_weight="1"
+        android:background="#80000000"
+        android:padding="25dp"
+        android:src="@drawable/ic_restaurant_white_48dp" />
+
+</LinearLayout>
