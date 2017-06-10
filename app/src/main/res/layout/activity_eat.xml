@@ -78,21 +78,26 @@
         android:layout_gravity="center_horizontal">
 
         <RadioButton
+            android:id="@+id/sedantary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sedentary" />
+            android:text="Sedentary"
+            android:checked="true"/>
 
         <RadioButton
+            android:id="@+id/lightly_active"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lightly Active" />
 
         <RadioButton
+            android:id="@+id/moderately_active"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Moderately Active" />
 
         <RadioButton
+            android:id="@+id/very_active"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Very Active" />
