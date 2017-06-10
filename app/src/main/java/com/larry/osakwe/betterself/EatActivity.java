@@ -43,12 +43,12 @@ public class EatActivity extends AppCompatActivity {
         switch (trueCheckRadioButton.getId()) {
             case R.id.male:
                 if (checked) {
-                    return menBMR(age(), 5, 7, 175);
+                    return menBMR(age(), height(), weight());
 
                 }
             case R.id.female:
                 if (checked) {
-                    return women(age(), 5, 7, 175);
+                    return women(age(), height(), weight());
                 }
         }
 
@@ -65,12 +65,12 @@ public class EatActivity extends AppCompatActivity {
     }
 
 
-    private double menBMR(int age, double feet, double inches, double weight) {
-        return 66 + (6.2 * weight) + (12.7 * ((12*feet)+inches)) - (6.76 * age);
+    private double menBMR(int age, double height, double weight) {
+        return 66 + (6.2 * weight) + (12.7 * height) - (6.76 * age);
     }
 
-    private double women(int age, double feet, double inches, double weight) {
-        return 665.1 + (4.35 * weight) + (4.7 * ((12*feet)+inches)) - (4.7 * age);
+    private double women(int age, double height, double weight) {
+        return 665.1 + (4.35 * weight) + (4.7 * height) - (4.7 * age);
     }
 
     private int age() {
@@ -80,14 +80,22 @@ public class EatActivity extends AppCompatActivity {
     }
 
     private double height() {
-        EditText feetField = (EditText) findViewById(R.id.age);
+        EditText feetField = (EditText) findViewById(R.id.feet);
         int feetValue = Integer.parseInt(feetField.getText().toString());
 
-        EditText inchField = (EditText) findViewById(R.id.age);
+        EditText inchField = (EditText) findViewById(R.id.inches);
         int inchValue = Integer.parseInt(inchField.getText().toString());
 
-        return 1;
+        return 12*feetValue + inchValue;
     }
+
+    private double weight() {
+        EditText weightField = (EditText) findViewById(R.id.weight);
+        int weightValue = Integer.parseInt(weightField.getText().toString());
+        return weightValue*1.0;
+    }
+
+
 
 
 }
