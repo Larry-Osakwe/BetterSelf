@@ -13,11 +13,6 @@ import static com.larry.osakwe.betterself.R.id.tdee;
 
 public class EatActivity extends AppCompatActivity {
 
-    private int age;
-    private double feet;
-    private double inches;
-    private double weight;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +23,10 @@ public class EatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                displayTDEE(""+ tdeeCalc());
+                displayTDEE("" + tdeeCalc());
             }
         });
-
-
     }
-
 
     private double bmrCalc() {
         RadioGroup radioGroupCity = (RadioGroup) findViewById(R.id.male_or_female);
@@ -83,15 +75,10 @@ public class EatActivity extends AppCompatActivity {
         return -1;
     }
 
-
-
-
-
     private void displayTDEE(String tdeeCalc) {
         TextView tdeeView = (TextView) findViewById(tdee);
         tdeeView.setText("" + tdeeCalc);
     }
-
 
     private double menBMR(int age, double height, double weight) {
         return 66 + (6.2 * weight) + (12.7 * height) - (6.76 * age);
@@ -123,7 +110,7 @@ public class EatActivity extends AppCompatActivity {
         }
         int inchValue = Integer.parseInt(inchField.getText().toString());
 
-        return 12*feetValue + inchValue;
+        return 12 * feetValue + inchValue;
     }
 
     private double weight() {
@@ -132,12 +119,8 @@ public class EatActivity extends AppCompatActivity {
             return 0;
         }
         int weightValue = Integer.parseInt(weightField.getText().toString());
-        return weightValue*1.0;
+        return weightValue * 1.0;
     }
-
-
-
-
 
 
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,15 +11,15 @@
         android:id="@+id/male_or_female"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="Male" />
 
         <RadioButton
             android:id="@+id/female"
@@ -35,23 +34,22 @@
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:hint="yrs"
-        android:inputType="number"
-        android:layout_gravity="center_horizontal"/>
+        android:inputType="number" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/feet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="ft"
-            android:inputType="number"
-            />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/inches"
@@ -67,9 +65,9 @@
         android:id="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:hint="lbs"
-        android:inputType="number"
-        android:layout_gravity="center_horizontal"/>
+        android:inputType="number" />
 
     <RadioGroup
         android:id="@+id/activity_group"
@@ -81,8 +79,8 @@
             android:id="@+id/sedantary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sedentary"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="Sedentary" />
 
         <RadioButton
             android:id="@+id/lightly_active"
@@ -108,15 +106,15 @@
         android:id="@+id/calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="Calculate" />
 
     <TextView
         android:id="@+id/tdee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0" />
 
 
 </LinearLayout>
