@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,13 +16,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
 public class SleepActivity extends AppCompatActivity {
 
     private Spinner hoursSpinner;
     private Spinner minuteSpinner;
     private Spinner ampmSpinner;
     private Button calcButton;
-    private Calendar cal;
+    private Calendar sleepyTime1;
+    private Date time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,6 @@ public class SleepActivity extends AppCompatActivity {
 
         addItemsOnSpinner();
         addListenerOnButton();
-
 
     }
 
@@ -55,7 +57,6 @@ public class SleepActivity extends AppCompatActivity {
 
         hoursAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hoursSpinner.setAdapter(hoursAdapter);
-
 
         minuteSpinner = (Spinner) findViewById(R.id.minute_spinner);
         List<String> minutes = new ArrayList<String>();
@@ -97,13 +98,22 @@ public class SleepActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                try {
-                    bedTime();
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                if (String.valueOf(hoursSpinner.getSelectedItem()).equals("(hour)") ||
+                        String.valueOf(minuteSpinner.getSelectedItem()).equals("(minute)")) {
+                    Toast.makeText(SleepActivity.this, "Please select time",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+
+                    try {
+                        bedTime();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    TextView test = (TextView) findViewById(R.id.calcMessage);
+                    test.setText("You should fall asleep at " + sleepyTime1.get(Calendar.HOUR) + ":"
+                            + sleepyTime1.get(Calendar.MINUTE) + " " + ampm());
                 }
-                TextView test = (TextView) findViewById(R.id.calcMessage);
-                test.setText("You should fall asleep at " + cal.getTime());
             }
         });
 
@@ -111,24 +121,23 @@ public class SleepActivity extends AppCompatActivity {
 
     public void bedTime() throws ParseException {
 
-        /*Calendar cal = Calendar.getInstance();
-// remove next line if you're always using the current time.
-        cal.setTime(currentDate);
-        cal.add(Calendar.HOUR, -1);
-        Date oneHourBack = cal.getTime();
-*/
-
         SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
-        Date time = sdf.parse(String.valueOf(hoursSpinner.getSelectedItem()) + ":" + String.valueOf(minuteSpinner.getSelectedItem()) + " " + String.valueOf(ampmSpinner.getSelectedItem()));
+        time = sdf.parse(String.valueOf(hoursSpinner.getSelectedItem()) + ":" +
+                String.valueOf(minuteSpinner.getSelectedItem()) + " " +
+                String.valueOf(ampmSpinner.getSelectedItem()));
 
-        cal = Calendar.getInstance();
-        cal.setTime(time);
+        sleepyTime1 = Calendar.getInstance();
+        sleepyTime1.setTime(time);
+        sleepyTime1.add(Calendar.HOUR, -7);
+        sleepyTime1.add(Calendar.MINUTE, -30);
 
-        cal.add(Calendar.HOUR, -1);
-        cal.add(Calendar.MINUTE, -30);
+    }
 
-        //int hour = Integer.parseInt(String.valueOf(hoursSpinner.getSelectedItem()));
-        //int minute = Integer.parseInt(String.valueOf(minuteSpinner.getSelectedItem()));
+    public String ampm() {
+        if (sleepyTime1.get(Calendar.AM_PM) == 0) {
+            return "AM";
+        }
+        return "PM";
 
 
     }
