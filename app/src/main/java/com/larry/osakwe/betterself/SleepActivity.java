@@ -9,6 +9,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -98,6 +99,9 @@ public class SleepActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                DecimalFormat formatter = new DecimalFormat("00");
+
+
                 if (String.valueOf(hoursSpinner.getSelectedItem()).equals("(hour)") ||
                         String.valueOf(minuteSpinner.getSelectedItem()).equals("(minute)")) {
                     Toast.makeText(SleepActivity.this, "Please select time",
@@ -112,7 +116,7 @@ public class SleepActivity extends AppCompatActivity {
                     }
                     TextView test = (TextView) findViewById(R.id.calcMessage);
                     test.setText("You should fall asleep at " + sleepyTime1.get(Calendar.HOUR) + ":"
-                            + sleepyTime1.get(Calendar.MINUTE) + " " + ampm());
+                            + formatter.format(sleepyTime1.get(Calendar.MINUTE)) + " " + ampm());
                 }
             }
         });
