@@ -26,7 +26,8 @@
         <Spinner
             android:id="@+id/hour_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
         </Spinner>
 

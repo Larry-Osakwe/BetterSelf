@@ -9,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 import static com.larry.osakwe.betterself.R.id.tdee;
 
 public class EatActivity extends AppCompatActivity {
@@ -22,8 +24,9 @@ public class EatActivity extends AppCompatActivity {
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                displayTDEE("" + tdeeCalc());
+                DecimalFormat formatter = new DecimalFormat("0000");
+                
+                displayTDEE(formatter.format(tdeeCalc()));
             }
         });
     }
